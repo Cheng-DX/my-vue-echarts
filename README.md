@@ -37,7 +37,7 @@ Vue.component('d-chart', dcharts)
 |option|Object|null|native option in echart
 |title|string|'DCHART'|title of chart
 |mode|string|'light'|color mode of chart,light or dark
-|disable-full-screen|boolean|false|disable fullscreen tool
+|disable-fullscreen|boolean|false|disable fullscreen tool
 |disable-table|boolean|false|disable table tool
 |fast-mode|boolean|false|fast mode of chart,you can set the data only to create chart while this property is true
 |x-data|Array|[]|xAxis data of chart

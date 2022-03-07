@@ -35,11 +35,11 @@ export default {
       type: String,
       default: "light",
     },
-    disableFullScreen: {
+    disableFullscreen: {
       type: Boolean,
       default: false,
     },
-    disabledTable: {
+    disableTable: {
       type: Boolean,
       default: false,
     },
@@ -52,15 +52,15 @@ export default {
       default: () => [],
     },
     series: {
-      type: Array | Object,
-      default: () => {},
+      type: [Array, Object],
+      default: () => { },
     },
     type: {
       type: String,
       default: "line",
     },
     label: {
-      type: [Boolean, String],
+      type: Boolean,
       default: false,
     },
     labelPosition: {
@@ -145,7 +145,7 @@ export default {
             containLabel: true,
           },
           label: {
-            show: this.label === "true" || this.label === true ? true : false,
+            show: this.label,
             position: this.labelPosition,
           },
           xAxis: xAxis1,
@@ -164,15 +164,14 @@ export default {
       if (this.currentOption) {
         this.currentOption.backgroundColor = 'transparent'
         if (this.currentOption.label) {
-          this.currentOption.label.show =
-            this.label === "true" || this.label === true ? true : false;
+          this.currentOption.label.show = this.label
           this.currentOption.label.position = this.labelPosition;
         }
         if (this.currentOption.series) {
           this.currentOption["series"].forEach((item) => {
-            if(!item.symbolSize){
+            if (!item.symbolSize) {
               item.symbolSize = 1;
-            } 
+            }
           });
         }
         let imageColor = "#01244b";
