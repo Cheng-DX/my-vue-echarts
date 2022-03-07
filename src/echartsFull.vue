@@ -3,16 +3,16 @@
     top="5vh"
     width="90%"
     :modal="true"
-    :title="title"
     append-to-body
     :visible.sync="dialogVisible"
     :modal-append-to-body="false"
     :close-on-click-modal="false"
     fullscreen
+    :class="dialogClass"
   >
     <div style="height: 85vh; width: 95vw">
       <v-chart
-        :options="option"
+        :option="option"
         style="height: 100%; width: 100%"
         id="dialogBox"
         :key="1"
@@ -25,12 +25,26 @@
 
 <script>
 export default {
+  props: {
+    mode: {
+      type: String,
+    },
+  },
+  computed:{
+    dialogClass(){
+      return this.mode == "light" ? "dialogLight" : "dialogDark";
+    }
+  },
   data() {
     return {
       dialogVisible: false,
-      title: "",
       option: null,
     };
+  },
+  created() {
+    if (this.mode == "light") {
+      this.dialogClass = "dialogLight"
+    }
   },
   methods: {
     show(val) {
@@ -39,17 +53,12 @@ export default {
         if (val.series[i].label.show != undefined)
           val.series[i].label.show = false;
       }
-      val.title = [
-        {
-          show: false,
-        },
-      ];
       val.grid = [
         {
           left: "5%",
           right: "5%",
           top: "10%",
-          bottom: "10%"
+          bottom: "10%",
         },
       ];
 
@@ -78,7 +87,6 @@ export default {
       ]),
         this.$nextTick(() => {
           this.option = val;
-          this.title = val.title[0].text;
           this.dialogVisible = true;
         });
     },
@@ -87,11 +95,18 @@ export default {
 </script>
 
 <style scoped>
->>> .el-dialog {
-  background: #2e0266c4;
+.dialogDark >>> .el-dialog {
+  background: #100c2a;
 }
->>> .el-dialog__title {
+.dialogDark >>> .el-dialog__title {
   color: #dcdf31;
 }
-</style>>
+
+.dialogLight >>> .el-dialog {
+  background: #fffffff6;
+}
+.dialogLight >>> .el-dialog__title {
+  color: #000000bb;
+}
+</style>
 
