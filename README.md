@@ -33,12 +33,12 @@ Vue.component('d-chart', dcharts)
 ### props：
 
 |prop|type|default|description|
-| :----------: | :--: | :-----: |:--:|
+| :--------: | :--: | :-----: |:--:|
 |option|Object|null|native option in echart
 |title|string|'DCHART'|title of chart
 |mode|string|'light'|color mode of chart,light or dark
-|disabled-full-screen|boolean|false|disable fullscreen tool
-|disabled-table|boolean|false|disable table tool
+|disable-full-screen|boolean|false|disable fullscreen tool
+|disable-table|boolean|false|disable table tool
 |fast-mode|boolean|false|fast mode of chart,you can set the data only to create chart while this property is true
 |x-data|Array|[]|xAxis data of chart
 |series|Array or Object|null|series data of chart,see echart's series

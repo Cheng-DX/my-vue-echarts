@@ -3,10 +3,10 @@
     <v-chart
       :option="currentOption"
       style="height: 100%; width: 100%"
-      :key="1"
+      key="echart"
       ref="echart"
       :theme="mode"
-      :autoresize="true"
+      autoresize
     />
     <EchartsFull :mode="mode" ref="echartsFull" />
     <EchartsData ref="echartsData" />
@@ -23,7 +23,6 @@ export default {
     EchartsFull,
   },
   props: {
-    // 目标option
     option: {
       type: Object,
       default: null,
@@ -32,47 +31,38 @@ export default {
       type: String,
       default: "DCHART",
     },
-    // 主题模式
     mode: {
       type: String,
       default: "light",
     },
-    // 禁用全屏工具
-    disabledFullScreen: {
+    disableFullScreen: {
       type: Boolean,
       default: false,
     },
-    // 禁用数据表格工具
     disabledTable: {
       type: Boolean,
       default: false,
     },
-    // 快速模式，仅传入数据
     fastMode: {
       type: Boolean,
       default: false,
     },
-    // 快速模式下的x轴数据
     xData: {
       type: Array,
       default: () => [],
     },
-    // 快速模式下的y轴数据
     series: {
       type: Array | Object,
       default: () => {},
     },
-    // 快速模式下的图表类型，支持line,bar
     type: {
       type: String,
       default: "line",
     },
-    // 是否开启label
     label: {
       type: [Boolean, String],
       default: false,
     },
-    // label位置
     labelPosition: {
       type: String,
       default: "top",
