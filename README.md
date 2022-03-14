@@ -48,4 +48,4 @@ Vue.component('d-chart', dcharts)
 
 ### 示例
 - option示例见[option.vue](./templates/optionDemo.vue)
-- fast-mode示例见[fastMode.vue](./templates/fastModeDemo.vue)
+- fast-mode示例见[fastMode.vue](./templates/fastmodeDemo.vue)
